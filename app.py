@@ -46,31 +46,34 @@ st.markdown("""
 
     /* Hero Banner */
     .hero-banner {
-        background: linear-gradient(135deg, #FF8C00 0%, #FFD700 50%, #FFA500 100%);
+        background: linear-gradient(135deg, #D46B00 0%, #F0970A 45%, #D97706 100%);
         border-radius: 20px;
-        padding: 2.5rem 2rem;
+        padding: 3rem 2.5rem;
         text-align: center;
         margin-bottom: 1.5rem;
-        box-shadow: 0 8px 32px rgba(255, 140, 0, 0.3);
+        box-shadow: 0 8px 32px rgba(180, 100, 0, 0.4);
     }
     .hero-banner h1 {
         color: white;
-        font-size: 1.8rem;
+        font-size: 2.7rem;
         font-weight: 700;
         margin: 0;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.15);
-        line-height: 1.4;
+        text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+        line-height: 1.45;
+        letter-spacing: -0.01em;
     }
     .hero-banner .hero-icon {
-        font-size: 3rem;
-        margin-bottom: 0.75rem;
+        font-size: 4rem;
+        margin-bottom: 1rem;
         display: block;
+        filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
     }
     .hero-subtitle {
-        color: rgba(255,255,255,0.92);
-        font-size: 0.95rem;
-        margin-top: 0.75rem;
-        line-height: 1.6;
+        color: rgba(255,255,255,0.95);
+        font-size: 1rem;
+        margin-top: 0.9rem;
+        line-height: 1.7;
+        text-shadow: 0 1px 6px rgba(0,0,0,0.25);
     }
 
     /* Stat pills */
