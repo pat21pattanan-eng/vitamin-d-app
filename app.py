@@ -290,85 +290,87 @@ st.markdown("""
 
 
 # ── Form ──────────────────────────────────────────────────────────────────────
-with st.form("vitd_form"):
 
-    # ส่วนที่ 0: ข้อมูลส่วนตัว
-    st.markdown("""
-    <div class="section-title">
-        <span class="section-icon">👤</span> ข้อมูลเบื้องต้น
-    </div>
-    """, unsafe_allow_html=True)
+# ส่วนที่ 0: ข้อมูลส่วนตัว
+st.markdown("""
+<div class="section-title">
+    <span class="section-icon">👤</span> ข้อมูลเบื้องต้น
+</div>
+""", unsafe_allow_html=True)
 
-    col1, col2 = st.columns(2)
-    with col1:
-        name = st.text_input("ชื่อ-นามสกุล / ชื่อเล่น *", placeholder="กรอกชื่อของคุณ")
-    with col2:
-        phone = st.text_input("เบอร์โทร / LINE ID", placeholder="(ไม่บังคับ)")
+col1, col2 = st.columns(2)
+with col1:
+    name = st.text_input("ชื่อ-นามสกุล / ชื่อเล่น *", placeholder="กรอกชื่อของคุณ")
+with col2:
+    phone = st.text_input("เบอร์โทร / LINE ID", placeholder="(ไม่บังคับ)")
 
-    st.markdown("<hr>", unsafe_allow_html=True)
+st.markdown("<hr>", unsafe_allow_html=True)
 
-    # ส่วนที่ 1: พฤติกรรมและปัจจัยเสี่ยง
-    st.markdown("""
-    <div class="section-title">
-        <span class="section-icon">🌿</span> ส่วนที่ 1 — พฤติกรรมและปัจจัยเสี่ยง
-    </div>
-    """, unsafe_allow_html=True)
+# ส่วนที่ 1: พฤติกรรมและปัจจัยเสี่ยง
+st.markdown("""
+<div class="section-title">
+    <span class="section-icon">🌿</span> ส่วนที่ 1 — พฤติกรรมและปัจจัยเสี่ยง
+</div>
+""", unsafe_allow_html=True)
 
-    st.markdown('<div class="question-label"><span class="q-num">1</span><span class="q-icon">☀️</span>พฤติกรรมการโดนแสงแดดของคุณเป็นอย่างไร?</div>', unsafe_allow_html=True)
-    q1 = st.radio(
-        "q1", ["ทำกิจกรรมกลางแจ้งเป็นประจำ", "ทำงานออฟฟิศ หรืออยู่ในร่มตลอดวัน"],
-        horizontal=False, label_visibility="collapsed"
-    )
+st.markdown('<div class="question-label"><span class="q-num">1</span><span class="q-icon">☀️</span>พฤติกรรมการโดนแสงแดดของคุณเป็นอย่างไร?</div>', unsafe_allow_html=True)
+q1 = st.radio(
+    "q1", ["ทำกิจกรรมกลางแจ้งเป็นประจำ", "ทำงานออฟฟิศ หรืออยู่ในร่มตลอดวัน"],
+    horizontal=False, label_visibility="collapsed"
+)
 
-    st.markdown('<div class="question-label"><span class="q-num">2</span><span class="q-icon">🧴</span>การใช้ครีมกันแดดหรือการปกป้องผิวของคุณ?</div>', unsafe_allow_html=True)
-    q2 = st.radio(
-        "q2", ["ไม่ค่อยทาครีมกันแดด", "ทาครีมกันแดดเป็นประจำทุกวัน หรือใส่เสื้อแขนยาวเสมอ"],
-        label_visibility="collapsed"
-    )
+st.markdown('<div class="question-label"><span class="q-num">2</span><span class="q-icon">🧴</span>การใช้ครีมกันแดดหรือการปกป้องผิวของคุณ?</div>', unsafe_allow_html=True)
+q2 = st.radio(
+    "q2", ["ไม่ค่อยทาครีมกันแดด", "ทาครีมกันแดดเป็นประจำทุกวัน หรือใส่เสื้อแขนยาวเสมอ"],
+    label_visibility="collapsed"
+)
 
-    st.markdown('<div class="question-label"><span class="q-num">3</span><span class="q-icon">🎂</span>อายุของคุณ?</div>', unsafe_allow_html=True)
-    q3 = st.radio(
-        "q3", ["อายุน้อยกว่า 50 ปี", "อายุ 50 ปีขึ้นไป"],
-        horizontal=True, label_visibility="collapsed"
-    )
+st.markdown('<div class="question-label"><span class="q-num">3</span><span class="q-icon">🎂</span>อายุของคุณ?</div>', unsafe_allow_html=True)
+q3 = st.radio(
+    "q3", ["อายุน้อยกว่า 50 ปี", "อายุ 50 ปีขึ้นไป"],
+    horizontal=True, label_visibility="collapsed"
+)
 
-    st.markdown('<div class="question-label"><span class="q-num">4</span><span class="q-icon">🪞</span>โทนสีผิวของคุณ?</div>', unsafe_allow_html=True)
-    q4 = st.radio(
-        "q4", ["ผิวขาว หรือ ขาวเหลือง", "ผิวคล้ำ หรือ สีผิวเข้ม"],
-        horizontal=True, label_visibility="collapsed"
-    )
+st.markdown('<div class="question-label"><span class="q-num">4</span><span class="q-icon">🪞</span>โทนสีผิวของคุณ?</div>', unsafe_allow_html=True)
+q4 = st.radio(
+    "q4", ["ผิวขาว หรือ ขาวเหลือง", "ผิวคล้ำ หรือ สีผิวเข้ม"],
+    horizontal=True, label_visibility="collapsed"
+)
 
-    st.markdown('<div class="question-label"><span class="q-num">5</span><span class="q-icon">⚖️</span>น้ำหนักตัวของคุณอยู่ในเกณฑ์ใด?</div>', unsafe_allow_html=True)
-    q5 = st.radio(
-        "q5", ["น้ำหนักปกติ (BMI 18.5–22.9)", "น้ำหนักเกิน / อ้วน (BMI 23 ขึ้นไป)"],
-        horizontal=False, label_visibility="collapsed",
-        help="วิตามินดีละลายได้ในไขมัน ร่างกายที่มีไขมันสะสมมากจะ 'กักเก็บ' วิตามินดีไว้ในเนื้อเยื่อ ทำให้ระดับในเลือดต่ำลง"
-    )
+st.markdown('<div class="question-label"><span class="q-num">5</span><span class="q-icon">⚖️</span>น้ำหนักตัวของคุณอยู่ในเกณฑ์ใด?</div>', unsafe_allow_html=True)
+q5 = st.radio(
+    "q5", ["น้ำหนักปกติ (BMI 18.5–22.9)", "น้ำหนักเกิน / อ้วน (BMI 23 ขึ้นไป)"],
+    horizontal=False, label_visibility="collapsed",
+    help="วิตามินดีละลายได้ในไขมัน ร่างกายที่มีไขมันสะสมมากจะ 'กักเก็บ' วิตามินดีไว้ในเนื้อเยื่อ ทำให้ระดับในเลือดต่ำลง"
+)
 
-    st.markdown("<hr>", unsafe_allow_html=True)
+st.markdown("<hr>", unsafe_allow_html=True)
 
-    # ส่วนที่ 2: สัญญาณเตือน
-    st.markdown("""
-    <div class="section-title">
-        <span class="section-icon">🩺</span> ส่วนที่ 2 — สัญญาณเตือนจากร่างกาย
-    </div>
-    <p style="font-size:0.88rem;color:#666;margin-bottom:0.75rem;">✔ เลือกทุกอาการที่ตรงกับคุณในช่วง 1–3 เดือนที่ผ่านมา</p>
-    """, unsafe_allow_html=True)
+# ส่วนที่ 2: สัญญาณเตือน
+st.markdown("""
+<div class="section-title">
+    <span class="section-icon">🩺</span> ส่วนที่ 2 — สัญญาณเตือนจากร่างกาย
+</div>
+<p style="font-size:0.88rem;color:#666;margin-bottom:0.75rem;">✔ เลือกทุกอาการที่ตรงกับคุณในช่วง 1–3 เดือนที่ผ่านมา</p>
+""", unsafe_allow_html=True)
 
-    col_a, col_b = st.columns(2)
-    with col_a:
-        s1 = st.checkbox("😴  อ่อนเพลียเรื้อรัง")
-        s2 = st.checkbox("💪  ปวดเมื่อย / กล้ามเนื้ออ่อนแรง")
-        s3 = st.checkbox("🤧  ป่วยบ่อย / ภูมิต้านทานต่ำ")
-    with col_b:
-        s4 = st.checkbox("😔  อารมณ์แปรปรวน / หดหู่")
-        s5 = st.checkbox("💇  ผมร่วงผิดปกติ")
+any_symptom = any(st.session_state.get(k, False) for k in ['s1', 's2', 's3', 's4', 's5'])
+s6_checked  = st.session_state.get('s6', False)
 
-    st.markdown("<hr>", unsafe_allow_html=True)
-    s6 = st.checkbox("✅  ปัจจุบันยังไม่พบอาการผิดปกติใดๆ ข้างต้นเลย")
+col_a, col_b = st.columns(2)
+with col_a:
+    s1 = st.checkbox("😴  อ่อนเพลียเรื้อรัง",            key='s1', disabled=s6_checked)
+    s2 = st.checkbox("💪  ปวดเมื่อย / กล้ามเนื้ออ่อนแรง", key='s2', disabled=s6_checked)
+    s3 = st.checkbox("🤧  ป่วยบ่อย / ภูมิต้านทานต่ำ",     key='s3', disabled=s6_checked)
+with col_b:
+    s4 = st.checkbox("😔  อารมณ์แปรปรวน / หดหู่",         key='s4', disabled=s6_checked)
+    s5 = st.checkbox("💇  ผมร่วงผิดปกติ",                  key='s5', disabled=s6_checked)
 
-    st.markdown("<br>", unsafe_allow_html=True)
-    submitted = st.form_submit_button("📊  ดูผลประเมินของฉัน", type="primary")
+st.markdown("<hr>", unsafe_allow_html=True)
+s6 = st.checkbox("✅  ปัจจุบันยังไม่พบอาการผิดปกติใดๆ ข้างต้นเลย", key='s6', disabled=any_symptom)
+
+st.markdown("<br>", unsafe_allow_html=True)
+submitted = st.button("📊  ดูผลประเมินของฉัน", type="primary", use_container_width=True)
 
 
 # ── Result ────────────────────────────────────────────────────────────────────
