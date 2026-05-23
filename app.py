@@ -35,16 +35,25 @@ st.markdown("""
         font-family: 'Sarabun', sans-serif;
     }
 
-    /* ซ่อน default streamlit header */
-    #MainMenu, footer, header { visibility: hidden; }
+    /* 🌟 เวทมนตร์: ซ่อนทุกร่องรอยของ Streamlit ให้ดูเป็นเว็บ 100% */
+    #MainMenu {visibility: hidden;}
+    header {visibility: hidden;}
+    footer {visibility: hidden;}
+    .stDeployButton {display:none;}
 
     .main .block-container {
-        padding-top: 2rem;
+        padding-top: 1rem !important; /* ขยับเนื้อหาขึ้นไปชิดขอบบน */
         padding-bottom: 3rem;
         max-width: 680px;
     }
 
-    /* Hero Banner */
+    /* 🌟 เวทมนตร์: แอนิเมชันตอนเปิดเว็บ (ค่อยๆ ลอยขึ้นมา) */
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hero Banner พร้อมใส่แอนิเมชัน */
     .hero-banner {
         background: linear-gradient(135deg, #D46B00 0%, #F0970A 45%, #D97706 100%);
         border-radius: 20px;
@@ -52,7 +61,14 @@ st.markdown("""
         text-align: center;
         margin-bottom: 1.5rem;
         box-shadow: 0 8px 32px rgba(180, 100, 0, 0.4);
+        animation: fadeUp 0.8s ease-out; /* เรียกใช้แอนิเมชันตรงนี้ */
     }
+    
+    /* สั่งให้กล่องแบบฟอร์มค่อยๆ ลอยตามหลังปกมา */
+    div[data-testid="stForm"] { 
+        animation: fadeUp 0.8s ease-out 0.2s both; 
+    }
+
     .hero-banner h1 {
         color: white;
         font-size: 2.7rem;
@@ -62,11 +78,10 @@ st.markdown("""
         line-height: 1.45;
         letter-spacing: -0.01em;
     }
-    .hero-banner .hero-icon {
-        font-size: 4rem;
-        margin-bottom: 1rem;
+    .hero-banner .hero-svg {
         display: block;
-        filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
+        margin: 0 auto 1.1rem auto;
+        filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
     }
     .hero-subtitle {
         color: rgba(255,255,255,0.95);
@@ -197,6 +212,13 @@ st.markdown("""
     .product-text { font-size: 0.88rem; line-height: 1.65; color: #333; }
     .product-text strong { color: #1A1A1A; }
 
+    /* 🌟 เวทมนตร์: เอฟเฟกต์ปุ่มเต้นชีพจรดึงดูดสายตา */
+    @keyframes pulseGlow {
+        0% { box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4); }
+        50% { box-shadow: 0 4px 25px rgba(255, 140, 0, 0.8), 0 0 10px rgba(255, 215, 0, 0.5); transform: translateY(-2px); }
+        100% { box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4); }
+    }
+
     /* Submit button override */
     .stButton > button[kind="primaryFormSubmit"],
     .stButton > button[kind="primary"] {
@@ -208,7 +230,7 @@ st.markdown("""
         font-size: 1rem !important;
         font-weight: 700 !important;
         width: 100% !important;
-        box-shadow: 0 4px 16px rgba(255,140,0,0.35) !important;
+        animation: pulseGlow 2.5s infinite !important; /* สั่งให้ปุ่มเต้น */
         transition: all 0.2s ease !important;
     }
     .stButton > button[kind="primaryFormSubmit"]:hover,
@@ -276,7 +298,25 @@ st.markdown("""
 # ── Hero Banner ───────────────────────────────────────────────────────────────
 st.markdown("""
 <div class="hero-banner">
-    <span class="hero-icon">☀️</span>
+    <svg class="hero-svg" width="108" height="108" viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg">
+      <!-- Outer glow ring -->
+      <circle cx="55" cy="55" r="52" fill="rgba(255,255,255,0.07)"/>
+      <!-- Sun rays cardinal -->
+      <line x1="55" y1="4"  x2="55" y2="20" stroke="white" stroke-width="5" stroke-linecap="round" opacity="0.85"/>
+      <line x1="55" y1="90" x2="55" y2="106" stroke="white" stroke-width="5" stroke-linecap="round" opacity="0.85"/>
+      <line x1="4"  y1="55" x2="20" y2="55"  stroke="white" stroke-width="5" stroke-linecap="round" opacity="0.85"/>
+      <line x1="90" y1="55" x2="106" y2="55" stroke="white" stroke-width="5" stroke-linecap="round" opacity="0.85"/>
+      <!-- Sun rays diagonal -->
+      <line x1="78" y1="32" x2="89" y2="21" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.65"/>
+      <line x1="32" y1="32" x2="21" y2="21" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.65"/>
+      <line x1="78" y1="78" x2="89" y2="89" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.65"/>
+      <line x1="32" y1="78" x2="21" y2="89" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.65"/>
+      <!-- Center white circle -->
+      <circle cx="55" cy="55" r="30" fill="rgba(255,255,255,0.95)"/>
+      <!-- Vitamin label -->
+      <text x="55" y="48" text-anchor="middle" font-family="Sarabun, sans-serif" font-size="10.5" font-weight="600" fill="#C2410C">วิตามิน</text>
+      <text x="55" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="800" fill="#EA580C">D</text>
+    </svg>
     <h1>เช็คลิสต์ประเมินความเสี่ยง<br>ภาวะขาดวิตามินดี</h1>
     <p class="hero-subtitle">คนไทยกว่า <strong>45%</strong> มีภาวะขาดวิตามินดีโดยไม่รู้ตัว<br>ทำแบบประเมินนี้เพื่อรู้ระดับความเสี่ยงของคุณ</p>
     <span class="stat-pill">⏱ ใช้เวลาเพียง 2 นาที</span>
